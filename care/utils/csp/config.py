@@ -1,5 +1,5 @@
 import enum
-from typing import TypedDict
+from typing import TypedDict, TypeAlias
 
 from django.conf import settings
 
@@ -11,7 +11,7 @@ class ClientConfig(TypedDict):
     endpoint_url: str
 
 
-type BucketName = str
+BucketName: TypeAlias = str
 
 
 class CSProvider(enum.Enum):
