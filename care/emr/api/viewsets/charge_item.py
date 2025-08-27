@@ -82,6 +82,18 @@ def validate_service_resource(facility, service_resource, service_resource_id):
                 .exclude(status__in=SERVICE_REQUEST_COMPLETED_CHOICES)
                 .exists()
             )
+        elif service_resource == ChargeItemResourceOptions.nutrition_order.value:
+            # Import here to avoid circular imports
+            from care_diet.models.nutrition_order import NutritionOrder
+            return NutritionOrder.objects.filter(
+                facility=facility, external_id=service_resource_id
+            ).exists()
+        elif service_resource == ChargeItemResourceOptions.nutrition_intake.value:
+            # Import here to avoid circular imports
+            from care_diet.models.nutrition_intake import NutritionIntake
+            return NutritionIntake.objects.filter(
+                facility=facility, external_id=service_resource_id
+            ).exists()
     except Exception:
         return False
     return False

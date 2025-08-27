@@ -18,6 +18,7 @@ from care.emr.utils.valueset_coding_type import ValueSetBoundCoding
 class HealthcareServiceInternalType(str, Enum):
     pharmacy = "pharmacy"
     lab = "lab"
+    food = "food"
 
 
 class BaseHealthcareServiceSpec(EMRResource):
