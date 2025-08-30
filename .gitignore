@@ -360,3 +360,6 @@ jwks.b64.txt
 care_db.dump
 
 typst*
+
+# Care Modules
+care_diet
